@@ -61,6 +61,7 @@ while playerScore != 3 or cpuScore != 3: #START THE MATCH (GAME)
     # Difficulty levels go from 1-10
     difficulty = ""
     difficultyLevel = ""
+
     if difficultyLevel == "1-5":
         print("You are in the easy stage of the game!")
         if difficultyLevel == ("1-5"):
