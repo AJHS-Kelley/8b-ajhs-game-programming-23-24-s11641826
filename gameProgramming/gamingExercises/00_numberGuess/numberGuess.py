@@ -59,17 +59,19 @@ while playerScore != 3 or cpuScore != 3: #START THE MATCH (GAME)
     # print(secretNumber)
     # ADD CODE HERE TO CHANGE DIFFICULTY BETWEEN EACH ROUND
     # Difficulty levels go from 1-10
-    difficulty = ""
-    difficultyLevel = ""
-
-    if difficultyLevel == "1-5":
-        print("You are in the easy stage of the game!")
-        if difficultyLevel == ("1-5"):
-            print("You have entered the easy stage of the game!")
-        elif difficultyLevel == ("6-10"):
-            print("You have entered the medium stage of the game!")
-        else difficultyLevel == ("11-15"):
-            print("You have entered the hard stage of the game!!")
+    difficulty = input("what difficulty would you like to select?")
+if difficultyLevel == "Easy":
+    print = ("This is easy mode you have 2 guesses to a number 1-3!")
+    numGuesses = 2
+    rangeMin = 1
+    rangeMax = 3
+elif difficulty == "Medium":
+    print("This  is medium mode you have 5 guesses for numbers 1-15")
+    numGuesses = 5
+    rangeMin = 1
+    rangeMax = 15
+elif difficulty == "Hard":
+    
             
     numGuesses = 0
     for guesses in range (4): # Start the round
