@@ -61,7 +61,7 @@ while playerScore != 3 or cpuScore != 3: #START THE MATCH (GAME)
     # Difficulty levels go from 1-10
     difficulty = input("what difficulty would you like to select?")
 if difficultyLevel == "Easy":
-    print = ("This is easy mode you have 2 guesses to a number 1-3!")
+    print = ("This is easy mode you have 2 guesses to guess a number 1-3!")
     numGuesses = 2
     rangeMin = 1
     rangeMax = 3
@@ -71,6 +71,16 @@ elif difficulty == "Medium":
     rangeMin = 1
     rangeMax = 15
 elif difficulty == "Hard":
+    print("This is so hard mode you have 4 guesses to guess a number 1-25")
+    numGuesses = 4
+    rangeMin = 1
+    rangeMax = 25
+else:
+    print("You didnt submit an avalible level, were you going to pick medium by default")
+    numGuesses = 5
+    rangeMin = 1
+    rangeMax = 15
+secretNumber = random.randint(rangeMin, rangeMax)
     
             
     numGuesses = 0
