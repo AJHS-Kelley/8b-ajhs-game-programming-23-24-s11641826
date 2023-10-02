@@ -1,4 +1,4 @@
-# Collections Examples, Albert Laguerre, v0.2c
+# Collections Examples, Albert Laguerre, v0.3a
 
 # LIST -- ORDERED, CHANGEABLE, ALLOWS DUPLICATE VALUES
 breakfastFoods = ["Bacon", "Waffles", "Pancakes", "Cereal", "Milk"]
@@ -83,19 +83,23 @@ classGPA = [3.14, 2.25, 1.74, 1.99, 0.99, 4.25]
 #print(classGPA)
 
 # To delete using the index value we use .pop()
-breakfastFoods.pop(4)
-print(breakfastFoods)
-testScores.pop(4)
-print(testScores)
-classGPA.pop(4)
-print(classGPA)
+#breakfastFoods.pop(4)
+#print(breakfastFoods)
+#testScores.pop(4)
+#print(testScores)
+#classGPA.pop(4)
+#print(classGPA)
 
 # Pause - WYOC -- .pop() the 2nd element from each list. .remove() any item from the list.
 
-breakfastFoods.remove("Bacon")
-print(breakfastFoods)
-testScores.remove(15)
-print(testScores)
-classGPA.remove(0.99)
-print(classGPA)
+#breakfastFoods.remove("Bacon")
+#print(breakfastFoods)
+#testScores.remove(15)
+#print(testScores)
+#classGPA.remove(0.99)
+#print(classGPA)
 
+# Determining List Length
+print(f"There are {len(breakfastFoods)} items in the breakfastFoods list")
+print(f"There are {len(testScores)} items in the testScores list")
+print(f"There are {len(classGPA)} items in the classGPA list")
