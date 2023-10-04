@@ -82,7 +82,7 @@ else:
     rangeMax = 15
 secretNumber = random.randint(rangeMin, rangeMax)
     
-            
+  
     numGuesses = 0
     for guesses in range (4): # Start the round
         # put difficulty code
