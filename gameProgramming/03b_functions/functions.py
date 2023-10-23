@@ -18,4 +18,4 @@ def exampleFunction(num, count): # PARAMETERS
 exampleFunctionA = 0
 exampleFunctionB = 0
 exampleFunctionA()
-exampleFunctionB()
+exampleFunctionB(5, 0)
