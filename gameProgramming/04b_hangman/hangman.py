@@ -1,4 +1,4 @@
-# Hangman Game by Albert Laguerre, v0.3
+# Hangman Game by Albert Laguerre, v0.4
 import random
 words = 'cat cow dog elephant sheep lion snack mouse cheetah bat red blue yellow orange black white purple pink violet silver phytoplanton mitochondria supercalifragilistiexpiealadous Sesquipedalian Antidisestablishmentarianism aintbiotics'
 
@@ -41,11 +41,21 @@ def getRandomWord(wordList): # Return a random word from the list.
     # len(listName) - 1 is EXTRAMELY COMMON FOR WORKING WITH LISTS
     return wordList[wordIndex]
 
-i = 0
-while i < 100:
-    word = getRandomWord(words)
-    print(word)
-    i += 1
+def displayBoard(missedLetters,  correctLetters, secretWord):
+    print(HANGMAN_BOARD[len(missedLetters)])
+    print()
+
+    print('Missed Letters:', end =' ')
+    for eachLetter in missedLetters:
+        print(eachLetter, end = ' ')
+    print()
+    # Finish thursday
+
+#i = 0
+#while i < 100:
+#    word = getRandomWord(words)
+#    print(word)
+#    i += 1
 
 
 
