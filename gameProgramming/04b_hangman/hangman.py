@@ -76,6 +76,10 @@ def getGuess(alreadyGuessed):
         else:
             return guess 
 
+def playAgain():
+    print(' Do you want to play again? Yes or No?')
+    return input().lower().startswith('y')
+
 
 # i = 0
 # while i < 100:
