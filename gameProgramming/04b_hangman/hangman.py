@@ -1,4 +1,4 @@
-# Hangman Game by Albert Laguerre, v0.4
+# Hangman Game by Albert Laguerre, v0.6
 import random
 words = 'cat cow dog elephant sheep lion snack mouse cheetah bat red blue yellow orange black white purple pink violet silver phytoplanton mitochondria supercalifragilistiexpiealadous Sesquipedalian Antidisestablishmentarianism aintbiotics'
 
@@ -59,7 +59,23 @@ def displayBoard(missedLetters,  correctLetters, secretWord):
 
     for letter in blanks:
         print(letter, end = ' ')
-    print()            
+    print()
+
+
+def getGuess(alreadyGuessed):
+    while True:
+        print('Please guess a letter and press enter')
+        guess = input()
+        guess = guess.lower()
+        if len(guess) != 1:
+            print(' Please enter a single letter.') 
+        elif guess in alreadyGuessed:
+            print(' Letter has been guessed already, try again.')
+        elif guess not in 'abcdefghjklmnopqrstuvwxyz':
+            print(' Please guess a LETTER from the english alphabet.')
+        else:
+            return guess 
+
 
 # i = 0
 # while i < 100:
