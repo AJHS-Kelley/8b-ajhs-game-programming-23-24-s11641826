@@ -16,9 +16,14 @@ HANGMAN_BOARD = ['''
      =======''', '''   
     +---+
     O   |
-   /|\  |           
+   /|     |           
         |            
      =======''', '''   
+  +---+
+    O   |
+   /|\  |           
+        |            
+     =======''', ''' 
     +---+
     O   |
    /|\  |           
@@ -96,13 +101,36 @@ while True:
     if guess in secretWord:
         correctLetters = correctLetters + guess
 
-        
+        # Check to see if winner, winner checken dinner
+        foundAllLetters = True 
+        for i in range (len(secretWord)):
+            if secretWord[i] not in correctLetters:
+                foundAllLetters = False
+                break
+            if foundAllLetters:     # if true:
+                print('Much wow! Very win! Well done.')
+                print('The secret word was' + secretWord)
+                gameIsDone = True 
+    else:
+        missedLetters = missedLetters + guess
 
-# i = 0
-# while i < 100:
-#    word = getRandomWord(words)
-#    print(word)
-#    i += 1
+        if len(missedLetters) == len(HANGMAN_BOARD) - 1:
+            displayBoard(missedLetters, correctLetters, secretWord)
+            print('You have run out of guesses and lost the game.')
+            print('You made this number of correct guesses ' + str(len(correctLetters)))
+            print('The secret word was ' + secretWord)
+            gameIsDone = True
+
+    if gameIsDone:
+        if playAgain():
+            missedLetters = ''
+            correctLetters = ''
+            gameIsDone = False
+            secretWord = getRandomWord(words)
+        else:
+            break
+
+
 
 
 
