@@ -1,15 +1,30 @@
 # Example Game FUNCTIONS project, Albert Laguerre, v0.0
 import random
 
-def functionsOne():
+def jumpBall():
     pass
 
-def functionTwo(param1):
+def dribbleBall(param1):
     pass
 
-def functionThree(param1 = "Default Value"):
+def shootBall(param1):
     pass
 
-def functionFour(param1, param2, param3):
+def passBall(param1, param2, param3):
     pass
+
+def catchBall(ThrowQuality, passCatchScore, weather):
+    if ThrowQuality > 5.0 and passCatchScore >= 99 and weather == 'Sunny':
+        ballCaught = True
+    elif ThrowQuality > 4.0 and passCatchScore >= 75 and weather == 'Windy':
+        ballCaught = False
+    else:
+        print('Oh, no, interceptiopn!\n')
+        ballIntercepted = True
+        return ballIntercepted
+    return ballCaught
+
+catchBall(4.25, 107, 'Rainy')
+
+
 
