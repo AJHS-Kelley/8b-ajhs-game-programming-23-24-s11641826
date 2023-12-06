@@ -8,8 +8,6 @@ def main():
     player2wins = 0
     rollDice = 0
     rounds = 1
-    numberofDice = 2
-    diceRoll = 0
     
 
 def rollDice(numDice, sizeDice):
@@ -22,14 +20,30 @@ def rollDice(numDice, sizeDice):
         print(f"Sum: {sum}\n")
         numRolled += 1
 
-def numberofDice(numDice, sizeDice):
-    numberofDice = 2
-    sum = 2
-
     
 def diceRoll():
     diceRoll = random.randint(1, 6)
     return diceRoll
+
+dice = int(input("Dice: "))
+
+if (dice <= 0):
+    print("Must at least have one dice!")
+
+sides = int(input("Sides: "))
+
+if (sides <= 0):
+    print("Must at least have one side!")
+
+roll = []
+
+for i in range(0,dice):
+    face = random.randint(1,sides)
+    roll.append(face)
+
+print(roll)
+
+random.randint(1,6)
 
 def rounds():
     print("Round " + str(rounds))
@@ -55,6 +69,7 @@ def rounds():
         print("Player 1 Wins! ")
     else:
         print("Player 2 Wins! ")
+
     
 
 
