@@ -27,11 +27,11 @@ def numberofDice(numDice, sizeDice):
     sum = 2
 
     
-def diceRoll(param1):
+def diceRoll():
     diceRoll = random.randint(1, 6)
     return diceRoll
 
-def rounds(param1, param2, param3):
+def rounds():
     print("Round " + str(rounds))
     player1 = rollDice()
     player2 = rollDice()
