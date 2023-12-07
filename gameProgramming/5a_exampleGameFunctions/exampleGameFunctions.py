@@ -20,10 +20,11 @@ def rollDice(numDice, sizeDice):
         print(f"Sum: {sum}\n")
         numRolled += 1
 
-    
+
 def diceRoll():
     diceRoll = random.randint(1, 6)
     return diceRoll
+
 
 dice = int(input("Dice: "))
 
