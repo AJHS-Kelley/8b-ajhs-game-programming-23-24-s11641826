@@ -14,6 +14,8 @@ text_surface = test_front.render('My game', False, 'Green')
 snail_surface = pygame.iamge.load('graphics/snail/snail1.png').convert_alpha()
 snail_x_pos = 600
 
+player_surf = pygame.image.load('graphics/player/player_walk_1.png').convert_alpha()
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
