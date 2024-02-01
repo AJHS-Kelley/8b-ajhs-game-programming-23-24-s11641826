@@ -21,3 +21,24 @@ class DNAGame:
         print("Try to guess the DNA sequence.")
         print("The sequence contains only 'A', 'C', 'G', and 'T'.")
         print(f"The DNA sequence has a length of {len(self.target_sequence.display_sequence())} bases.")
+
+while True:
+            try:
+                guess = input("Enter your guess: ")
+
+                if guess.upper() == self.target_sequence.display_sequence():
+                    print(f"Congratulations! You guessed the correct DNA sequence: {self.target_sequence.display_sequence()}")
+                    print(f"It took you {self.attempts} attempts.")
+                    break
+                else:
+                    print("Incorrect guess. Try again.")
+                    self.attempts += 1
+
+            except KeyboardInterrupt:
+                print("\nGame interrupted. Exiting.")
+                break
+
+if __name__ == "__main__":
+    game_length = 10  # You can adjust the length of the DNA sequence
+    dna_game = DNAGame(game_length)
+    dna_game.play()
