@@ -1,5 +1,10 @@
 # DNA Replication Game, Albert Laguerre, v0.0
 
+# You are using code that we did not review in class which is good BUT it does not work. 
+# Your DNA sequence is not printing to the screen first, which means I cannot try to create the correct RNA sequence. 
+# After entering in some random characters, the game crashes as well. 
+# I appreciate you trying to find new solutions to the problems but you need to redo this project. 
+
 import random
 
 class DNASequence:
