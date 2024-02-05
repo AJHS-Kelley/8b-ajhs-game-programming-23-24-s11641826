@@ -1,49 +1,55 @@
-# DNA Replication Game, Albert Laguerre, v0.0
+# Import Entire Modules -- Get the whole tool box.
+import time, datetime 
 
-# You are using code that we did not review in class which is good BUT it does not work. 
-# Your DNA sequence is not printing to the screen first, which means I cannot try to create the correct RNA sequence. 
-# After entering in some random characters, the game crashes as well. 
-# I appreciate you trying to find new solutions to the problems but you need to redo this project. 
+# Import Specific Methods -- Get the specific tool.
+from random import choice
 
-import random
+# Store the DNA Bases
+dnaBases = ["A", "T", "G", "C"]
 
-class DNASequence:
-    nucleotides = ['A', 'C', 'G', 'T']
+# GAME FUNCTIONS
+def gameIntro() -> None:
+    pass
 
-    def __init__(self, length):
-        self.sequence = ''.join(random.choice(self.nucleotides) for _ in range(length))
+def genDNA() -> str:
+    basesGenerated = 0
+    basesRequested = int(input("Please enter a positive integer number of bases to generate.\n"))
+    dnaSequence = ""
 
-def display_sequence(self):
-        return self.sequence
+    while basesGenerated < basesRequested:
+        dnaSequence += choice(dnaBases)
+        basesGenerated += 1
+    return dnaSequence
 
-class DNAGame:
-    def __init__(self, length):
-        self.target_sequence = DNASequence(length)
-        self.attempts = 0
+def doTranscription(dnaSequence: str) -> tuple:
+    
+    print(f"The DNA Sequence is {dnaSequence}.\n")
+    print("You will now generate the RNA sequence that would match.\n")
+    print("Please remember, in the RNA sequence U pairs with A from the DNA sequence.")
+    rnaStart = time.time() #time.time() returns the number of seconds since 00:00:00 UTC Jan. 01, 1970
+    rnaSequence = input("Please enter the matching RNA sequence. Leave no spaces! Then press enter.\n").upper()
+    rnaStop = time.time()
+    rnaTime = rnaStop - rnaStart
+    return (rnaSequence, rnaTime)
+    # Tuples are ORDERED -- you can reference elements with the index.
+    # Tuples are UNCHANGEABLE -- you cannot add, modify, or delete after creating
+    # Tuples CAN have duplicate values.
 
-    def play(self):
-        print("Welcome to the DNA Guessing Game!")
-        print("Try to guess the DNA sequence.")
-        print("The sequence contains only 'A', 'C', 'G', and 'T'.")
-        print(f"The DNA sequence has a length of {len(self.target_sequence.display_sequence())} bases.")
+def verifySequence(dnaSequence: str, rnaSequence: str) -> bool:
+    isMatch = False
+    if len(dnaSequence) != len(rnaSequence):
+        print("The sequences are diffrent lengths and cannot match.\n")
+        return isMatch
+    for dnaBase, rnaBase in zip(dnaSequence, rnaSequence):
+        if dnaBase == "A" and rnaBase == "U":
+            isMatch = True
+        elif dnaBase == "C" and rnaBase == "G":
+            isMatch = True
+        elif dnaBase == "G" and rnaBase == "C":
+            isMatch = True
+        elif dnaBase == "T" and rnaBase == "A":
+            isMatch = True
+        else:
+            print ("error message about no match.\n")
+    return isMatch
 
-while True:
-            try:
-                guess = input("Enter your guess: ")
-
-                if guess.upper() == self.target_sequence.display_sequence():
-                    print(f"Congratulations! You guessed the correct DNA sequence: {self.target_sequence.display_sequence()}")
-                    print(f"It took you {self.attempts} attempts.")
-                    break
-                else:
-                    print("Incorrect guess. Try again.")
-                    self.attempts += 1
-
-            except KeyboardInterrupt:
-                print("\nGame interrupted. Exiting.")
-                break
-
-if __name__ == "__main__":
-    game_length = 10  # You can adjust the length of the DNA sequence
-    dna_game = DNAGame(game_length)
-    dna_game.play()
