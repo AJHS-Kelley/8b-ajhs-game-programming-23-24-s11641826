@@ -53,3 +53,58 @@ def verifySequence(dnaSequence: str, rnaSequence: str) -> bool:
             print ("error message about no match.\n")
     return isMatch
 
+def calcScore(rnaSequence: str, rnaTime: float) -> int:
+    score = 0
+    if rnaTime < 1.0:
+        score += 1000000
+    elif rnaTime < 5.0:
+        score += 900000
+    elif rnaTime < 15.0:
+        score += 700000
+    elif rnaTime < 25.0:
+        score += 500000
+    else: # Slowest Time, Lowest Score
+        score += 250000
+
+    scoreMulti = 0.0
+    if len(rnaSequence) >+ 30: #Long
+        scoreMulti = 5.0
+    elif len(rnaSequence) >= 25: # Long
+        scoreMulti = 4.0
+    if len(rnaSequence) >+ 20: #Long
+        scoreMulti = 3.0
+    if len(rnaSequence) >+ 15: #Long
+        scoreMulti = 5.0
+    elif len(rnaSequence) >= 5:
+        scoreMulti = 1.0
+    else: #Short
+        scoreMulti = 0.5
+    # Increase
+    # Decrease
+    score *= scoreMulti
+    return score
+
+def saveScore(dnaSequence: str, rnaSequence: str, rnaTime: float, score: int) -> None:
+    playerName = input("What is your first name?\n")
+    lastName = input("What is your lastname?\n")
+    fullName = playerName + " " + lastName
+
+    fileName= "dnaReplication" + fullName + ".txt"
+    saveData = open(fileName, "a")
+    #File Modes
+    # "x" mode -- CREATE FILE, IF FILE EXISTS, EXIT WITH ERROR
+    # "w" mode -- CREATE FILE, IF FILE EXISTS, OVERWRITE IT
+    # "a" MODE -- CREATE FILE, IF FILE EXISTS, APPEND TO IT
+    saveData.write(f"DNA Sequence: {dnaSequence}\nRNA Sequence: {rnaSequence}\n")
+    saveData.write(f"Transcription Time: {rnaTime}\n")
+    saveData.write(f"Score: {score}\n")
+    saveData.write(f"{fullName}\n")
+    saveData.write(f"{datetime.datetime.now()}")
+    saveData.close()
+
+
+dna = genDNA()
+rna = doTranscription(dna)
+if verifySequence(dna, rna[0]):
+    score = (calcScore(rna[0], rna[1]))
+    saveScore(dna, rna[0], rna[1], score)
