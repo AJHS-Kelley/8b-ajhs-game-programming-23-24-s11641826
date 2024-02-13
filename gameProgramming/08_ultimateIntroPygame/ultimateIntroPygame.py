@@ -7,9 +7,14 @@ pygame.display.set_caption('Runner')
 clock = pygame.time.Clock()
 test_font = pygame.time.Front('font/Pixeltype.ttf', 50)
 
-sky_surface = pygame.image.load('graphics/Sky.png')
-ground_surface = pygame.image.load('graphics/ground.png')
-score_surf = test_font.render('My game', False, 'Black')
+
+
+sky_surface = pygame.image.load('graphics/Sky.png').convert()
+ground_surface = pygame.image.load('graphics/ground.png').convert()
+text_surf = test_font.render('My game', False, 'Black')
+
+snail_surface = pygame.image.load('graphics/snail/snail1.png').convert_alpha()
+snail_x_pos = 600
 
 while True:
     for event in pygame.event.get():
