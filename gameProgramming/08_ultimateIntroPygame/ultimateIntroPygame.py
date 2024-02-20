@@ -1,5 +1,6 @@
 import pygame
 from sys import exit
+# Let's get finished please Albert! -- 02/15/24
 
 def display_score():
    current_time = pygame.time.get_ticks()
