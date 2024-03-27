@@ -1,0 +1,19 @@
+Game Genre / Type: 
+Theme: Bright, Colorful Graphic -- 
+
+Win Condition(s): 
+    --
+Loss Condition(s):
+    --
+
+Levels / Screens:
+    -- 
+    --
+
+Objectives / Enemies / Obstacles:
+    --
+
+Items / Equipment / Objects:
+    --
+    --
+
