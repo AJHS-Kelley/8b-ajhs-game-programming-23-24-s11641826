@@ -17,3 +17,8 @@ Items / Equipment / Objects:
     --
     --
 
+Difficulty Changes:
+    --
+
+Controls:
+    --
