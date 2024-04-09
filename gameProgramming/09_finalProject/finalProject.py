@@ -24,3 +24,11 @@ else:
 screen = pygame.desplay.set_mode((x, y))
 # CREATE AN if / else BLOCK TO SET RESOLUTION BASED ON THE VARIABLE ABOVE
 
+if resolution == 0:
+    x = 800
+    y = 600
+else:
+    x = 1920
+    y = 1080
+
+
