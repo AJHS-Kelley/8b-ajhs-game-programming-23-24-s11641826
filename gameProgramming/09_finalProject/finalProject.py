@@ -14,14 +14,14 @@ pygame.init()
 
 difficulty = int(input("Please choose a difficulty. Enter 1 for EASY or 2 for HARD!"))
 
-pygame.display.set_caption('NAME OF GAME -- EASY')
-pygame.display.set_caption('NAME OF GAME -- HARD')
+pygame.display.set_caption('Basketball Game -- EASY')
+pygame.display.set_caption('Basketball Game -- HARD')
 
 if difficulty == 1:
-    pygame.display.set_caption('NAME OF GAME -- EASY')
+    pygame.display.set_caption('Basketball Game -- EASY')
 else:
-    pygame.display.set_caption('NAME OF GAME -- HARD')
-screen = pygame.desplay.set_mode((x, y))
+    pygame.display.set_caption('Basketball Game -- HARD')
+screen = pygame.display.set_mode((x, y))
 # CREATE AN if / else BLOCK TO SET RESOLUTION BASED ON THE VARIABLE ABOVE
 
 if resolution == 0:
@@ -31,4 +31,75 @@ else:
     x = 1920
     y = 1080
 
+# Set up the screen
+screen_width = 800
+screen_height = 600
+screen = 0
+pygame.display.set_mode((screen_width, screen_height))
 
+# Colors
+white = (255, 255, 255)
+black = (0, 0, 0)
+red = (255, 0, 0)
+blue = (0, 0, 255)
+
+#Fonts
+font = pygame.font.SysFont(None, 50)
+
+# Player
+player_size = 50
+player_color = red
+player_x = screen_height // 2 - player_size // 2
+player_y = screen_height - player_size - 10
+player_speed = 5
+
+# Computer Player
+computer_color = blue
+computer_size = 50
+computer_x = screen_width // 2 - computer_size // 2
+computer_y = 10
+computer_speed = 3
+
+# Ball
+ball_radius = 15
+ball_color = black
+ball_x = screen_width // 2
+ball_y = player_y - ball_radius
+ball_speed = 5
+ball_direction_x = 0
+ball_direction_y = 0
+
+# Score
+player_score = 0
+computer_score = 0
+
+# Function to display score
+def display_score():
+    player_text = font.render(f"Player: {player_score}0", True, red)
+    computer_text = font.render(f"Computer: {computer_score}", True, blue)
+    screen.blit(player_text, (10, 10))
+    screen.blit(computer_text, (screen_width - computer_text.get_width() - 10, 10))
+
+# Main game loop
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+# Player Movement
+keys = pygame.key.get_pressed()
+if keys[pygame.K_LEFT] and player_x > 0:
+    player_x -= player_speed
+if keys[pygame.K_RIGHT] and player_x < screen_width - player_size:
+    player_x += player_speed
+
+# Computer Movement
+if ball_y < screen_height // 2 and ball_direction_y < 0:
+    if computer_x + computer_size // 2 < ball_x:
+        computer_x += computer_speed
+    elif computer_x + computer_size // 2 > ball_x:
+        computer_x -= computer_speed
+
+# Ball Movement
+    
