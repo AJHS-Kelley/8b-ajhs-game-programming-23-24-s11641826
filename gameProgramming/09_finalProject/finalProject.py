@@ -102,4 +102,17 @@ if ball_y < screen_height // 2 and ball_direction_y < 0:
         computer_x -= computer_speed
 
 # Ball Movement
-    
+ball_x += ball_direction_x
+ball_y += ball_direction_y
+
+# Collision Detection with player
+if ball_y + ball_radius >= player_y and player_x < ball_x < player_x + player_size:
+    ball_direction_y = -ball_speed
+    player_score += 1
+
+# Collision Dectection with computer
+if ball_y - ball_radius <= computer_y + computer_size and computer_x < ball_x < computer_x + computer_size:
+    ball_direction_y = ball_speed
+    computer_score += 1
+
+
