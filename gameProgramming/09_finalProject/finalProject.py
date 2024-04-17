@@ -115,4 +115,16 @@ if ball_y - ball_radius <= computer_y + computer_size and computer_x < ball_x < 
     ball_direction_y = ball_speed
     computer_score += 1
 
+# Ball out of bounds
+if ball_y < 0 or ball_y > screen_height:
+    ball_x = random.randint(ball_radius, screen_width - ball_radius)
+    ball_y = player_y - ball_radius
+    ball_direction_x = 0
+    ball_direction_y = 0
+
+# Update Screen
+screen.fill(white)
+pygame.draw.rect(screen, player_color, (player_x, player_y, player_size, player_size))
+pygame.draw.rect(screen, computer_color, (computer_x, computer_y, computer_size, computer_size))
+pygame.draw.circle(screen, ball_color, (ball_x, ball_y), ball_radius)
 
