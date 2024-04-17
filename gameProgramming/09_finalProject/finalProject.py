@@ -127,4 +127,11 @@ screen.fill(white)
 pygame.draw.rect(screen, player_color, (player_x, player_y, player_size, player_size))
 pygame.draw.rect(screen, computer_color, (computer_x, computer_y, computer_size, computer_size))
 pygame.draw.circle(screen, ball_color, (ball_x, ball_y), ball_radius)
+display_score()
+pygame.display.flip()
 
+# Frame rate
+pygame.time.Clock().tick()
+
+pygame.quit()
+sys.exit()
