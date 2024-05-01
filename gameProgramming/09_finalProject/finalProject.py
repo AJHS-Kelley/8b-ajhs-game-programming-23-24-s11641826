@@ -1,5 +1,6 @@
 # Fianl Project, Albert Laguerre, v0.0
 
+import pygame
 import turtle
 import random
 import time
@@ -96,3 +97,31 @@ screen.onkeypress(snake_go_up, "Up")
 screen.onkeypress(snake_go_down, "Down")
 screen.onkeypress(snake_go_left, "Left")
 screen.onkeypress(snake_go_right, "Right")
+
+#main loop
+while True:
+    screen.update()
+
+    # snake & fruit colision
+    if snake.distance(fruit) < 20:
+        x = random.randint(-290, 270)
+        y = random.randint(-240, 240)
+        fruit.goto(x, y)
+        scoring.clear()
+        score += 1
+        scoring.write("Score: {}" .format(score), align="center", font=("coursier", 24, "bold"))
+        delay -= 0.001
+
+        #creating new foods
+        new_fruit = turtle.Turtle()
+        new_fruit.speed(0)
+        new_fruit.shape("square")
+        new_fruit.color("red")
+        new_fruit.penup()
+        old_fruit.append(new_fruit)
+
+    #adding ball to snake
+
+    for index in range(len(old_fruit)-1, 0, -1):
+        a = old_fruit[index -1].xcor()
+        b = old_fruit[index -1].ycor()
