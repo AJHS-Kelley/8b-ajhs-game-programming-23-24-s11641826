@@ -76,7 +76,7 @@ def snake_go_right():
     if snake.direction != "left":
         snake.direction = "right"
 
-def move():
+def snake_move():
     if snake.direction == "up":
         y = snake.ycor()
         snake.sety(y + 20)
@@ -85,10 +85,10 @@ def move():
         snake.sety(y - 20)
     if snake.direction == "left":
         x = snake.xcor()
-        snake.sety(x - 20)
+        snake.setx(x - 20)
     if snake.direction == "right":
         x = snake.xcor()
-        snake.sety(x + 20)
+        snake.setx(x + 20)
 
 
 # keyboard binding
@@ -125,3 +125,32 @@ while True:
     for index in range(len(old_fruit)-1, 0, -1):
         a = old_fruit[index -1].xcor()
         b = old_fruit[index -1].ycor()
+
+        old_fruit[index].goto(a, b)
+
+    if len(old_fruit) > 0:
+        a = snake.xcor()
+        b = snake.ycor()
+        old_fruit[0].goto(a, b)
+    snake_move()
+
+    #snake and boarder collision
+    if snake.xcor() > 280 or snake.xcor() < -300 or snake.ycor() > 240 or snake.ycor() < -240:
+        time.sleep(1)
+        screen.clear()
+        screen.bgcolor("turquoise")
+        scoring.goto(0, 0)
+        scoring.write("    Game Over \n Your score is {}".format(score), align="center", font=("Courier", 30, "bold"))
+
+    # snake collision
+    for food in old_fruit:
+        if food.distance(snake) < 20:
+            time.sleep(1)
+        screen.clear()
+        screen.bgcolor("turquoise")
+        scoring.goto(0, 0)
+        scoring.write("    Game Over \n Your score is {}".format(score), align="center", font=("Courier", 30, "bold"))
+
+    time.sleep(delay)
+
+    turtle.Terminator()
