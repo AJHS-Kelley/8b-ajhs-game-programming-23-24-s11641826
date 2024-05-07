@@ -1,4 +1,6 @@
-# Fianl Project, Albert Laguerre, v0.0
+# Fianl Project, Albert Laguerre, v0.1a
+
+# Game runs but it ends as soon as I eat one piece! 
 
 import pygame
 import turtle
